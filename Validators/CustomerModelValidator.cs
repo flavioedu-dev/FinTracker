@@ -7,13 +7,7 @@ namespace FinTracker.API.Validators
     {
         public CustomerModelValidator()
         {
-            RuleFor(x => x.Participant)
-                .NotEmpty()
-                .WithMessage("Obrigatório");
 
-            RuleFor(x => x.Reason)
-                .NotEmpty()
-                .WithMessage("Obrigatório"); ;
         }
     }
 }

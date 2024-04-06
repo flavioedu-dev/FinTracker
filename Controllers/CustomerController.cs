@@ -1,19 +1,23 @@
-﻿
-using FinTracker.API.Models;
+﻿using FinTracker.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FinTracker.API.Controllers
-{
-    [Route("api")]
-    [ApiController]
-    public class CustomerController : ControllerBase
-    {
-        [HttpPost("{CustomerId}/customer")]
-        public IActionResult GetCustomer(string? customerId, [FromBody] CustomerModel customerModel)
-        {
-            customerModel.CustomerId = customerId;
+namespace FinTracker.API.Controllers;
 
-            return Ok(customerModel);
-        }
+[Route("api/[controller]")]
+[ApiController]
+public class CustomerController : ControllerBase
+{
+    [HttpGet("{username}")]
+    public IActionResult GetCustomer(string username)
+    {
+
+        return Ok();
+    }
+
+    [HttpPost]
+    public IActionResult AddCustomer(CustomerModel customerModel)
+    {
+
+        return Ok(customerModel);
     }
 }

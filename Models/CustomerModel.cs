@@ -1,13 +1,12 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-
-namespace FinTracker.API.Models;
+﻿namespace FinTracker.API.Models;
 
 public class CustomerModel
 {
-    public string? CustomerId { get; set; }
+    public string? Username { get; set; }
 
-    public string? Participant { get; set; }
+    public string? FullName { get; set; }
 
-    public string? Reason { get; set; }
+    public string? Email { get; set; }
+
+    public string? Password { get; set; }
 }
