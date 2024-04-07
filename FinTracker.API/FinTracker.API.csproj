@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinTracker.Domain\FinTracker.Domain.csproj" />
+    <ProjectReference Include="..\FinTranker.Infrastructure\FinTranker.Infrastructure.csproj" />
   </ItemGroup>
-
 </Project>
