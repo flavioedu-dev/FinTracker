@@ -5,11 +5,11 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinTracker.API", "FinTracker.API\FinTracker.API.csproj", "{2EDEC6E2-A66B-49A6-ACCE-9B679D835CBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTranker.Domain", "FinTranker.Domain\FinTranker.Domain.csproj", "{02EDE22F-A94E-4936-9159-0EA9628A0BE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinTracker.Application", "FinTracker.Application\FinTracker.Application.csproj", "{07C975B3-82B5-43CA-B98A-D7C2E53F0EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTranker.Application", "FinTranker.Application\FinTranker.Application.csproj", "{273D76BA-CA87-4081-97FF-49D038028C58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinTracker.Domain", "FinTracker.Domain\FinTracker.Domain.csproj", "{8BA35B63-2D9A-4F43-B813-40150C006FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTranker.Infrastructure", "FinTranker.Infrastructure\FinTranker.Infrastructure.csproj", "{6041EE6A-271C-4CA5-940C-170686B359E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinTracker.Infrastructure", "FinTracker.Infrastructure\FinTracker.Infrastructure.csproj", "{0B173449-5A7C-465F-870C-E2CA5D553925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +21,18 @@ Global
 		{2EDEC6E2-A66B-49A6-ACCE-9B679D835CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EDEC6E2-A66B-49A6-ACCE-9B679D835CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EDEC6E2-A66B-49A6-ACCE-9B679D835CBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02EDE22F-A94E-4936-9159-0EA9628A0BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02EDE22F-A94E-4936-9159-0EA9628A0BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02EDE22F-A94E-4936-9159-0EA9628A0BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02EDE22F-A94E-4936-9159-0EA9628A0BE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{273D76BA-CA87-4081-97FF-49D038028C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{273D76BA-CA87-4081-97FF-49D038028C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{273D76BA-CA87-4081-97FF-49D038028C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{273D76BA-CA87-4081-97FF-49D038028C58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6041EE6A-271C-4CA5-940C-170686B359E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6041EE6A-271C-4CA5-940C-170686B359E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6041EE6A-271C-4CA5-940C-170686B359E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6041EE6A-271C-4CA5-940C-170686B359E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C975B3-82B5-43CA-B98A-D7C2E53F0EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C975B3-82B5-43CA-B98A-D7C2E53F0EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C975B3-82B5-43CA-B98A-D7C2E53F0EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C975B3-82B5-43CA-B98A-D7C2E53F0EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA35B63-2D9A-4F43-B813-40150C006FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA35B63-2D9A-4F43-B813-40150C006FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA35B63-2D9A-4F43-B813-40150C006FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA35B63-2D9A-4F43-B813-40150C006FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B173449-5A7C-465F-870C-E2CA5D553925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B173449-5A7C-465F-870C-E2CA5D553925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B173449-5A7C-465F-870C-E2CA5D553925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B173449-5A7C-465F-870C-E2CA5D553925}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

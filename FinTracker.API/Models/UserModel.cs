@@ -1,9 +1,7 @@
-﻿namespace FinTranker.Domain.Entities;
+﻿namespace FinTracker.API.Models;
 
-public class Customer
+public class UserModel
 {
-    public Guid Id { get; set; }
-
     public string? Username { get; set; }
 
     public string? FullName { get; set; }

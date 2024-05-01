@@ -1,4 +1,4 @@
-using FinTranker.Infrastructure.Database;
+using FinTracker.Infrastructure.Database;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
