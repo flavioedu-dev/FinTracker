@@ -1,5 +1,5 @@
 ﻿using FinTracker.Domain.Entities;
-using FinTracker.Domain.Interfaces;
+using FinTracker.Domain.Interfaces.Repositories;
 using FinTracker.Infrastructure.Database;
 
 namespace FinTracker.Infrastructure.Repositories;

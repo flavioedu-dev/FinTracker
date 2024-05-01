@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace FinTracker.Domain.Interfaces;
+namespace FinTracker.Domain.Interfaces.Repositories;
 
 public interface IRepository<T>
 {
