@@ -4,5 +4,7 @@ namespace FinTracker.Domain.Interfaces.Services;
 
 public interface IUserService
 {
-    UserDTO GetUser(string username);
+    UserResponseDTO RegisterUser(UserDTO user);
+
+    UserResponseDTO GetUser(string username);
 }

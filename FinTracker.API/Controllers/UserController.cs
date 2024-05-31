@@ -1,6 +1,7 @@
 ﻿using FinTracker.API.Models;
 using FinTracker.Domain.DTO;
 using FinTracker.Domain.Interfaces.Services;
+using Mapster;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinTracker.API.Controllers;
@@ -19,7 +20,7 @@ public class UserController : ControllerBase
     [HttpGet("{username}")]
     public IActionResult GetUser(string username)
     {
-        UserDTO user = _userService.GetUser(username);
+        UserResponseDTO user = _userService.GetUser(username);
 
         return Ok(user);
     }
@@ -27,7 +28,10 @@ public class UserController : ControllerBase
     [HttpPost]
     public IActionResult AddUser(UserModel userModel)
     {
+        UserDTO userDto = userModel.Adapt<UserDTO>();
 
-        return Ok(userModel);
+        UserResponseDTO userResponseDTO = _userService.RegisterUser(userDto);
+
+        return Ok(userResponseDTO);
     }
 }

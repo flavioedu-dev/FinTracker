@@ -2,6 +2,7 @@
 using FinTracker.Domain.Entities;
 using FinTracker.Domain.Interfaces.Repositories;
 using FinTracker.Domain.Interfaces.Services;
+using Mapster;
 using System.Text.Json;
 
 namespace FinTracker.Application.Services;
@@ -15,7 +16,7 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public UserDTO GetUser(string username)
+    public UserResponseDTO GetUser(string username)
     {
         User? userRegistered = _userRepository.Get(x => x.Username == username);
 
@@ -24,8 +25,26 @@ public class UserService : IUserService
 
         string userJson = JsonSerializer.Serialize(userRegistered);
 
-        UserDTO userDto = JsonSerializer.Deserialize<UserDTO>(userJson)!; 
+        UserResponseDTO userResponseDTO = JsonSerializer.Deserialize<UserResponseDTO>(userJson)!; 
 
-        return userDto;
+        return userResponseDTO;
+    }
+
+    public UserResponseDTO RegisterUser(UserDTO userDto)
+    {
+        try
+        {
+            User user = userDto.Adapt<User>();
+
+            User? userRegistered = _userRepository.Add(user!) ?? throw new Exception("User not registered.");
+
+            UserResponseDTO userResponseDTO = userRegistered.Adapt<UserResponseDTO>();
+
+            return userResponseDTO;
+        }
+        catch
+        {
+            throw;
+        }
     }
 }
