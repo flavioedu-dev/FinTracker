@@ -1,8 +1,10 @@
 ﻿using FinTracker.Domain.DTO;
 using FinTracker.Domain.Entities;
+using FinTracker.Domain.Exceptions;
 using FinTracker.Domain.Interfaces.Repositories;
 using FinTracker.Domain.Interfaces.Services;
 using Mapster;
+using System.Net;
 using System.Text.Json;
 
 namespace FinTracker.Application.Services;
@@ -21,7 +23,7 @@ public class UserService : IUserService
         User? userRegistered = _userRepository.Get(x => x.Username == username);
 
         if (userRegistered is null)
-            throw new Exception("User not found.");
+            throw new UserException(HttpStatusCode.NotFound);
 
         string userJson = JsonSerializer.Serialize(userRegistered);
 

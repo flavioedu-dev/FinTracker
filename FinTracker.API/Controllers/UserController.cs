@@ -22,7 +22,7 @@ public class UserController : ControllerBase
     {
         UserResponseDTO user = _userService.GetUser(username);
 
-        return Ok(user);
+        return StatusCode(StatusCodes.Status200OK, user);
     }
 
     [HttpPost]

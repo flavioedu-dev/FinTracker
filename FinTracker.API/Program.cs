@@ -1,9 +1,13 @@
 using FinTracker.API.IoC;
+using FinTracker.API.Mapper;
+using FinTracker.API.Middlewares;
 using FinTracker.Infrastructure.Database;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.RegisterMaps();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -15,9 +19,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddComponents();
 
+
 builder.Services.AddDbContext<AppDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
-
 
 var app = builder.Build();
 
@@ -27,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseGlobalErrorHandling();
 
 app.UseHttpsRedirection();
 
