@@ -2,8 +2,9 @@
 using FinTracker.Domain.Interfaces.Repositories;
 using FinTracker.Domain.Interfaces.Services;
 using FinTracker.Infrastructure.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace FinTracker.API.IoC;
+namespace FinTracker.CrossCutting.IoC;
 
 public static class PipelineExtensions
 {

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinTracker.Domain", "FinTra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinTracker.Infrastructure", "FinTracker.Infrastructure\FinTracker.Infrastructure.csproj", "{0B173449-5A7C-465F-870C-E2CA5D553925}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTracker.CrossCutting", "FinTracker.CrossCutting\FinTracker.CrossCutting.csproj", "{86001AA8-505E-4C2C-ACAF-578CE07EE303}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0B173449-5A7C-465F-870C-E2CA5D553925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B173449-5A7C-465F-870C-E2CA5D553925}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B173449-5A7C-465F-870C-E2CA5D553925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86001AA8-505E-4C2C-ACAF-578CE07EE303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86001AA8-505E-4C2C-ACAF-578CE07EE303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86001AA8-505E-4C2C-ACAF-578CE07EE303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86001AA8-505E-4C2C-ACAF-578CE07EE303}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

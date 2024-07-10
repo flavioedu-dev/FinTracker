@@ -1,4 +1,4 @@
-using FinTracker.API.IoC;
+using FinTracker.CrossCutting.IoC;
 using FinTracker.API.Mapper;
 using FinTracker.API.Middlewares;
 using FinTracker.Infrastructure.Database;
@@ -17,11 +17,11 @@ builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsi
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddComponents();
-
-
-builder.Services.AddDbContext<AppDbContext>(options => 
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+
+// DI
+builder.Services.AddComponents();
 
 var app = builder.Build();
 

@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinTracker.Application\FinTracker.Application.csproj" />
-    <ProjectReference Include="..\FinTracker.Infrastructure\FinTracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\FinTracker.CrossCutting\FinTracker.CrossCutting.csproj" />
   </ItemGroup>
 </Project>
