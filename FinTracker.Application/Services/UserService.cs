@@ -21,14 +21,21 @@ public class UserService : IUserService
 
     public UserResponseDTO GetUser(string username)
     {
-        User? userRegistered = _userRepository.Get(x => x.Username == username) 
-            ?? throw new UserException(HttpStatusCode.NotFound, ApplicationMessages.User_NotFound);
-            
-        string userJson = JsonSerializer.Serialize(userRegistered);
+        try
+        {
+            User? userRegistered = _userRepository.Get(x => x.Username == username)
+            ?? throw new UserException(HttpStatusCode.NotFound, ApplicationMessages.GetUser_Fail);
 
-        UserResponseDTO userResponseDTO = JsonSerializer.Deserialize<UserResponseDTO>(userJson)!; 
+            string userJson = JsonSerializer.Serialize(userRegistered);
 
-        return userResponseDTO;
+            UserResponseDTO userResponseDTO = JsonSerializer.Deserialize<UserResponseDTO>(userJson)!;
+
+            return userResponseDTO;
+        }
+        catch
+        {
+            throw;
+        }
     }
 
     public UserResponseDTO RegisterUser(UserDTO userDto)
@@ -37,15 +44,15 @@ public class UserService : IUserService
         {
             User user = userDto.Adapt<User>();
 
-            User? userRegistered = _userRepository.Add(user!) ?? throw new Exception("User not registered.");
+            User? userRegistered = _userRepository.Add(user!);
 
             UserResponseDTO userResponseDTO = userRegistered.Adapt<UserResponseDTO>();
 
             return userResponseDTO;
         }
-        catch
+        catch (Exception ex)
         {
-            throw;
+            throw new UserException(HttpStatusCode.BadRequest, ApplicationMessages.RegisterUser_Fail, ex);
         }
     }
 }

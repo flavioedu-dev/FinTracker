@@ -120,7 +120,10 @@
   <data name="DefaultError" xml:space="preserve">
     <value>Erro no sistema, tente novamente.</value>
   </data>
-  <data name="User.NotFound" xml:space="preserve">
+  <data name="GetUser.Fail" xml:space="preserve">
     <value>Usuário não encontrado.</value>
+  </data>
+  <data name="RegisterUser.Fail" xml:space="preserve">
+    <value>Erro ao registrar usuário.</value>
   </data>
 </root>

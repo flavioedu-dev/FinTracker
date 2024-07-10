@@ -16,6 +16,11 @@ public class UserException : Exception
         Code = code;
     }
 
+    public UserException(HttpStatusCode code, string msg, Exception innerEx) : base(msg, innerEx)
+    {
+        Code = code;
+    }
+
     public UserException(string msg, Exception innerEx) : base(msg, innerEx)
     {
 

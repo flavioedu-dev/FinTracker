@@ -1,7 +1,5 @@
 ﻿using FinTracker.Application.Resources;
 using FinTracker.Domain.Exceptions;
-using Microsoft.AspNetCore.Http;
-using System;
 using System.Net;
 using System.Text.Json;
 
@@ -24,49 +22,30 @@ public class GlobalErrorHandling
         {
             await _next(httpContext);
         }
-        catch (UserException ex)
+        catch (Exception ex)
         {
             await HandleErrorAsync(httpContext, ex);
         }
-        catch (Exception ex)
-        {
-            _logger.LogError($"Error Message: {ex.Message}");
-            _logger.LogError($"Error Stack: {ex.StackTrace}");
-
-            ErrorResponse errorResponse = new()
-            {
-                Sucess = false,
-                Message = "Erro no sistema, tente novamente."
-            };
-
-            httpContext.Response.ContentType = "application/json";
-            httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
-        }
-
-
     }
 
     private async Task HandleErrorAsync(HttpContext httpContext, Exception exception)
     {
         ErrorResponse errorResponse = new();
-        errorResponse.Sucess = false;
 
         _logger.LogError($"Error Message: {exception.Message}");
+        _logger.LogError($"Inner Error Message: {exception.InnerException?.Message}");
         _logger.LogError($"Error Stack: {exception.StackTrace}");
-        
+
         httpContext.Response.ContentType = "application/json";
 
         switch (exception)
         {
             case UserException ex:
-                if (ex.Code is HttpStatusCode.NotFound)
-                {
                     errorResponse.Message = ex.Message;
 
-                    httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+                    httpContext.Response.StatusCode = (int)ex.Code;
                     await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
-                }
+                
                 break;
 
             default:
@@ -77,6 +56,6 @@ public class GlobalErrorHandling
                 break;
         }
 
-        
+
     }
 }

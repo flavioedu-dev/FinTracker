@@ -1,4 +1,5 @@
-﻿using FinTracker.Domain.Interfaces.Repositories;
+﻿using FinTracker.Domain.Exceptions;
+using FinTracker.Domain.Interfaces.Repositories;
 using FinTracker.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
