@@ -1,4 +1,5 @@
-﻿using FinTracker.Domain.Exceptions;
+﻿using FinTracker.Application.Resources;
+using FinTracker.Domain.Exceptions;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Net;
@@ -46,22 +47,36 @@ public class GlobalErrorHandling
 
     }
 
-    private async Task HandleErrorAsync(HttpContext httpContext, UserException exception)
+    private async Task HandleErrorAsync(HttpContext httpContext, Exception exception)
     {
         ErrorResponse errorResponse = new();
         errorResponse.Sucess = false;
 
         _logger.LogError($"Error Message: {exception.Message}");
         _logger.LogError($"Error Stack: {exception.StackTrace}");
-
+        
         httpContext.Response.ContentType = "application/json";
 
-        if (exception.Code is HttpStatusCode.NotFound)
+        switch (exception)
         {
-            errorResponse.Message = "Usuário não encontrado.";
+            case UserException ex:
+                if (ex.Code is HttpStatusCode.NotFound)
+                {
+                    errorResponse.Message = ex.Message;
 
-            httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
-            await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
+                    httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+                    await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
+                }
+                break;
+
+            default:
+                errorResponse.Message = ApplicationMessages.DefaultError;
+
+                httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
+                break;
         }
+
+        
     }
 }
