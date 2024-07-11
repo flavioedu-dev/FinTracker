@@ -123,6 +123,9 @@
   <data name="GetUser.Fail" xml:space="preserve">
     <value>Usuário não encontrado.</value>
   </data>
+  <data name="RegisterFinance.Fail" xml:space="preserve">
+    <value>Erro ao registrar finança.</value>
+  </data>
   <data name="RegisterUser.Fail" xml:space="preserve">
     <value>Erro ao registrar usuário.</value>
   </data>

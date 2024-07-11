@@ -12,6 +12,8 @@ public static class PipelineExtensions
     {
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IFinanceRepository, FinanceRepository>();
+
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IFinanceServices, FinanceServices>();
     }
 }

@@ -79,6 +79,15 @@ namespace FinTracker.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Erro ao registrar finança..
+        /// </summary>
+        public static string RegisterFinance_Fail {
+            get {
+                return ResourceManager.GetString("RegisterFinance.Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Erro ao registrar usuário..
         /// </summary>
         public static string RegisterUser_Fail {
