@@ -1,10 +1,11 @@
 ﻿using FinTracker.Domain.DTO;
+using FinTracker.Domain.DTO.Response;
 
 namespace FinTracker.Domain.Interfaces.Services;
 
 public interface IUserService
 {
-    UserResponseDTO RegisterUser(UserDTO user);
+    UserResponseDTO GetUser(int userId);
 
-    UserResponseDTO GetUser(string username);
+    UserResponseDTO RegisterUser(UserDTO user);
 }

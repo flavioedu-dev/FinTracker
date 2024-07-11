@@ -1,5 +1,6 @@
 ﻿using FinTracker.Application.Resources;
 using FinTracker.Domain.DTO;
+using FinTracker.Domain.DTO.Response;
 using FinTracker.Domain.Entities;
 using FinTracker.Domain.Exceptions;
 using FinTracker.Domain.Interfaces.Repositories;
@@ -19,12 +20,12 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public UserResponseDTO GetUser(string username)
+    public UserResponseDTO GetUser(int userId)
     {
         try
         {
-            User? userRegistered = _userRepository.Get(x => x.Username == username)
-            ?? throw new UserException(HttpStatusCode.NotFound, ApplicationMessages.GetUser_Fail);
+            User? userRegistered = _userRepository.Get(x => x.Id == userId)
+                ?? throw new UserException(HttpStatusCode.NotFound, ApplicationMessages.GetUser_Fail);
 
             string userJson = JsonSerializer.Serialize(userRegistered);
 

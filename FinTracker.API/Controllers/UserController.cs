@@ -1,5 +1,7 @@
 ﻿using FinTracker.API.Models;
 using FinTracker.Domain.DTO;
+using FinTracker.Domain.DTO.Response;
+using FinTracker.Domain.Entities;
 using FinTracker.Domain.Interfaces.Services;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
@@ -12,15 +14,15 @@ public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
 
-    public UserController (IUserService userService)
+    public UserController(IUserService userService)
     {
         _userService = userService;
     }
 
-    [HttpGet("{username}")]
-    public IActionResult GetUser(string username)
+    [HttpGet("{userId}")]
+    public IActionResult GetUser(int userId)
     {
-        UserResponseDTO user = _userService.GetUser(username);
+        UserResponseDTO user = _userService.GetUser(userId);
 
         return StatusCode(StatusCodes.Status200OK, user);
     }
@@ -32,6 +34,6 @@ public class UserController : ControllerBase
 
         UserResponseDTO userResponseDTO = _userService.RegisterUser(userDto);
 
-        return Ok(userResponseDTO);
+        return StatusCode(StatusCodes.Status201Created, userResponseDTO);
     }
 }

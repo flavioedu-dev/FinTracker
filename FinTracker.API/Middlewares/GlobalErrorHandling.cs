@@ -41,11 +41,19 @@ public class GlobalErrorHandling
         switch (exception)
         {
             case UserException ex:
-                    errorResponse.Message = ex.Message;
+                    errorResponse.Message = ex?.InnerException?.Message ?? ex?.Message;
 
-                    httpContext.Response.StatusCode = (int)ex.Code;
+                    httpContext.Response.StatusCode = (int)ex!.Code;
                     await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
                 
+                break;
+
+            case FinanceException ex:
+                errorResponse.Message = ex?.InnerException?.Message ?? ex?.Message;
+
+                httpContext.Response.StatusCode = (int)ex!.Code;
+                await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
+
                 break;
 
             default:

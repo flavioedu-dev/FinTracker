@@ -1,4 +1,4 @@
-﻿namespace FinTracker.Domain.DTO;
+﻿namespace FinTracker.Domain.DTO.Response;
 
 public class UserResponseDTO
 {
