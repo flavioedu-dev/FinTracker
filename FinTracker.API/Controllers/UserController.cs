@@ -1,7 +1,7 @@
 ﻿using FinTracker.API.Models;
+using FinTracker.API.Models.User;
 using FinTracker.Domain.DTO;
-using FinTracker.Domain.DTO.Response;
-using FinTracker.Domain.Entities;
+using FinTracker.Domain.DTO.Response.User;
 using FinTracker.Domain.Interfaces.Services;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
@@ -20,20 +20,20 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{userId}")]
-    public IActionResult GetUser(int userId)
+    public IActionResult GetUser(GetUserModel getUserModel)
     {
-        UserResponseDTO user = _userService.GetUser(userId);
+        GetUserResponseDTO getUserResponseDTO = _userService.GetUser(getUserModel.Id);
 
-        return StatusCode(StatusCodes.Status200OK, user);
+        return StatusCode(StatusCodes.Status200OK, getUserResponseDTO);
     }
 
     [HttpPost]
-    public IActionResult AddUser(UserModel userModel)
+    public IActionResult AddUser(CreateUserModel userModel)
     {
-        UserDTO userDto = userModel.Adapt<UserDTO>();
+        RegisterUserDTO registerUserDTO = userModel.Adapt<RegisterUserDTO>();
 
-        UserResponseDTO userResponseDTO = _userService.RegisterUser(userDto);
+        RegisterUserResponseDTO registerUserResponseDTO = _userService.RegisterUser(registerUserDTO);
 
-        return StatusCode(StatusCodes.Status201Created, userResponseDTO);
+        return StatusCode(StatusCodes.Status201Created, registerUserResponseDTO);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace FinTracker.API.Models;
 
-public class UserModel
+public class CreateUserModel
 {
     public string? Username { get; set; }
 

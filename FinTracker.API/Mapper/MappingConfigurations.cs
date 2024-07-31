@@ -10,7 +10,7 @@ public static class MappingConfigurations
     public static void RegisterMaps(this IServiceCollection services)
     {
 
-        TypeAdapterConfig<UserDTO, User>
+        TypeAdapterConfig<RegisterUserDTO, User>
             .NewConfig();
 
         TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());

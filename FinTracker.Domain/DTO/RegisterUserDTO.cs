@@ -2,7 +2,7 @@
 
 namespace FinTracker.Domain.DTO;
 
-public class UserDTO
+public class RegisterUserDTO
 {
     public string? Username { get; set; }
 

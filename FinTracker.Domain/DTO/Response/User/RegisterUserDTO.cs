@@ -1,6 +1,6 @@
-﻿namespace FinTracker.Domain.DTO.Response;
+﻿namespace FinTracker.Domain.DTO.Response.User;
 
-public class UserResponseDTO
+public class RegisterUserResponseDTO
 {
     public int Id { get; set; }
 

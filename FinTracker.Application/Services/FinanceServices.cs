@@ -1,6 +1,6 @@
 ﻿using FinTracker.Application.Resources;
 using FinTracker.Domain.DTO;
-using FinTracker.Domain.DTO.Response;
+using FinTracker.Domain.DTO.Response.Finance;
 using FinTracker.Domain.Entities;
 using FinTracker.Domain.Exceptions;
 using FinTracker.Domain.Interfaces.Repositories;
@@ -21,12 +21,12 @@ public class FinanceServices : IFinanceServices
         _financeRepository = financeRepository;
     }
 
-    public FinanceResponseDTO GetFinancesByUser(string username)
+    public GetFinanceByUserResponseDTO GetFinancesByUser(long userId)
     {
         throw new NotImplementedException();
     }
 
-    public FinanceResponseDTO RegisterFinance(FinanceDTO financeDTO)
+    public RegisterFinanceResponseDTO RegisterFinance(FinanceDTO financeDTO)
     {
         try
         {
@@ -37,7 +37,7 @@ public class FinanceServices : IFinanceServices
 
             Finance? financeRegistered = _financeRepository.Add(finance);
 
-            FinanceResponseDTO financeResponseDTO = financeRegistered.Adapt<FinanceResponseDTO>();
+            RegisterFinanceResponseDTO financeResponseDTO = financeRegistered.Adapt<RegisterFinanceResponseDTO>();
 
             return financeResponseDTO;
         }

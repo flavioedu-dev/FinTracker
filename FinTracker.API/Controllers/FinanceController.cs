@@ -1,9 +1,9 @@
 ﻿using Mapster;
-using FinTracker.API.Models;
 using FinTracker.Domain.DTO;
 using Microsoft.AspNetCore.Mvc;
-using FinTracker.Domain.DTO.Response;
 using FinTracker.Domain.Interfaces.Services;
+using FinTracker.API.Models.Finance;
+using FinTracker.Domain.DTO.Response.Finance;
 
 namespace FinTracker.API.Controllers;
 
@@ -18,12 +18,20 @@ public class FinanceController : Controller
         _financeServices = financeServices;
     }
 
+    [HttpGet]
+    public IActionResult GetFinancesByUser(GetFinancesByUserModel getFinancesByUserModel)
+    {
+        GetFinanceByUserResponseDTO getFinanceByUserResponseDTO = _financeServices.GetFinancesByUser(getFinancesByUserModel.UserId);
+
+        return StatusCode(StatusCodes.Status200OK, getFinanceByUserResponseDTO);
+    }
+
     [HttpPost]
-    public IActionResult RegisterFinance(FinanceModel financeModel)
+    public IActionResult RegisterFinance(CreateFinanceModel financeModel)
     {
         FinanceDTO financeDTO = financeModel.Adapt<FinanceDTO>();
 
-        FinanceResponseDTO financeResponseDTO = _financeServices.RegisterFinance(financeDTO);
+        RegisterFinanceResponseDTO financeResponseDTO = _financeServices.RegisterFinance(financeDTO);
 
         return StatusCode(StatusCodes.Status201Created, financeResponseDTO);
     }

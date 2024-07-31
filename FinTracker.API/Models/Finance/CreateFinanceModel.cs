@@ -1,6 +1,6 @@
-﻿namespace FinTracker.API.Models;
+﻿namespace FinTracker.API.Models.Finance;
 
-public class FinanceModel
+public class CreateFinanceModel
 {
     public string? Title { get; set; }
 

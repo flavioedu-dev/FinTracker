@@ -1,11 +1,11 @@
 ﻿using FinTracker.Domain.DTO;
-using FinTracker.Domain.DTO.Response;
+using FinTracker.Domain.DTO.Response.Finance;
 
 namespace FinTracker.Domain.Interfaces.Services;
 
 public interface IFinanceServices
 {
-    FinanceResponseDTO GetFinancesByUser(string username);
+    GetFinanceByUserResponseDTO GetFinancesByUser(int userId);
 
-    FinanceResponseDTO RegisterFinance(FinanceDTO financeDto);
+    RegisterFinanceResponseDTO RegisterFinance(FinanceDTO financeDto);
 }
